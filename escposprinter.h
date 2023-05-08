@@ -20,7 +20,7 @@ public:
   
 
 size_t write(uint8_t c);
-size_t write(char c);
+size_t cwrite(char c);
 int read();
 
 void start();

@@ -52,6 +52,14 @@ Sets the line spacing to `n/180` inch.
 
 Sets the line spacing to `1/6` inch, which is equivalent to 30 dots.
 
+### `void EscPos::set80mm()`
+
+Sets the paper width to 80mm.
+
+### `void EscPos::set58mm()`
+
+Sets the paper width to 58mm.
+
 ### `void EscPos::characterSet(uint8_t n)`
 
 Selects an international character set based on the value of `n`. See table below for more metails.

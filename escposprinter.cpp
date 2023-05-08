@@ -34,7 +34,7 @@ size_t EscPos::write(uint8_t c) {
   this->_printer->write(c);
   return 1;
 }
-size_t EscPos::write(char c) {
+size_t EscPos::cwrite(char c) {
   this->_printer->write(c);
   return 1;
 }
@@ -223,7 +223,7 @@ void EscPos::qrcodeStartPrint(uint8_t len) {
   len = len + 3;
   uint8_t ll = len % 256;
   len = (uint8_t)(len / 256);
-  uint8_t lh = len % 256
+  uint8_t lh = len % 256;
   this->write(ll);
   this->write(lh);
   this->write(49);

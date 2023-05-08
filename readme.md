@@ -23,13 +23,18 @@ Constructor that initializes the `rxPin` and `txPin` used to communicate with th
 
 Sets up the communication pins, initializes the `SoftwareSerial` object used for communication with the printer, and sets the baud rate to 9600.
 
-### `int EscPos::getStatus()`
-
-Sends a query to the printer to check its status. Returns `0` if the printer is online.
-
 ### `int EscPos::read()`
 
 Reads a single byte of data from the printer.
+
+### `size_t EscPos::write(uint8_t c)`
+### `size_t EscPos::write(char c)`
+
+Writes a single byte of data to the printer.
+
+### `int EscPos::getStatus()`
+
+Sends a query to the printer to check its status. Returns `0` if the printer is online.
 
 ### `void EscPos::feed(uint8_t n)`
 
@@ -49,9 +54,7 @@ Sets the line spacing to `1/6` inch, which is equivalent to 30 dots.
 
 ### `void EscPos::characterSet(uint8_t n)`
 
-Selects an international character set based on the value of `n`. See reference for more metails.
-
-Example:
+Selects an international character set based on the value of `n`. See table below for more metails.
 
 ```
  0 = U.S.A.
@@ -65,31 +68,32 @@ Example:
  8 = Japan
  9 = Norway
 10 = Denmark II
+11 = Spain II
+12 = Latin America
+13 = Korea
+14 = Slovenia / Croatia
+15 = China
 ```
 
-### `void EscPos::doubleHeightOn()`
+### `void EscPos::effectDoubleHeight()`
 
-Enables double-height text printing.
+Enables double-height text printing. Can be combined with other effect.
 
-### `void EscPos::doubleHeightOff()`
+### `void EscPos::effectDoubleWidth()`
 
-Disables double-height text printing.
+Enables double-width text printing. Can be combined with other effect.
 
-### `void EscPos::boldOn()`
+### `void EscPos::effectBold()`
 
-Enables bold text printing.
+Enables bold text printing. Can be combined with other effect.
 
-### `void EscPos::boldOff()`
+### `void EscPos::effectUnderline()`
 
-Disables bold text printing.
+Enables underlined text printing. Can be combined with other effect.
 
-### `void EscPos::underlineOn()`
+### `void EscPos::effectOff()`
 
-Enables underlined text printing.
-
-### `void EscPos::underlineOff()`
-
-Disables underlined text printing.
+Disables all text printing effect.
 
 ### `void EscPos::reverseOn()`
 
@@ -111,21 +115,33 @@ Sets text justification to center.
 
 Sets text justification to right.
 
-### `void EscPos::barcodeHeight(uint8_t n)`
+### `void EscPos::barcodeHeight()`
 
-Sets the height of barcodes to `n` dots. Range 1-255.
+Sets the height of barcodes to 162 dots.
 
-### `void EscPos::barcodeWidth(uint8_t n)`
+### `void EscPos::barcodeWidth()`
 
-Sets the width of barcodes to `n` dots. Range 2-6
+Sets the width of barcodes to 3 dots.
 
-### `void EscPos::barcodeNumberPosition(uint8_t n)`
+### `void EscPos::barcodeTextPosition(uint8_t n)`
 
-Sets the position of the barcode number. Range 0-3
+Sets the position of the barcode text. Range 0-3. 0=no 1=above 2=below 3=both
 
-### `void EscPos::printBarcode(uint8_t m, uint8_t n)`
+### `void EscPos::barcodeStartPrint()`
 
-Prints a barcode of type `m` (range 65-73) with a digit length of `n`.
+Prints a barcode. Use EscPos->print("barcode") to send the string of barcode.
+
+### `void EscPos::barcodeEndPrint()`
+
+End the barcode print.
+
+### `void EscPos::qrcodeStartPrint(uint8_t len)`
+
+Prints a qrcode. `len` value is lenght in char of the string. Use EscPos->print("qrcode") to send the string of barcode.
+
+### `void EscPos::qrcodeEndPrint()`
+
+End the qrcode print.
 
 ### `void EscPos::fullCut()`
 
@@ -135,10 +151,6 @@ Performs a full cut of the paper.
 
 Performs a partial cut of the paper.
 
-### `size_t EscPos::write(uint8_t c)`
-### `size_t EscPos::write(char c)`
-
-Writes a single byte of data to the printer.
 
 
 ## License

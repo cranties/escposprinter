@@ -28,7 +28,6 @@ Sets up the communication pins, initializes the `SoftwareSerial` object used for
 Reads a single byte of data from the printer.
 
 ### `size_t EscPos::write(uint8_t c)`
-### `size_t EscPos::write(char c)`
 
 Writes a single byte of data to the printer.
 

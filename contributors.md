@@ -1,3 +1,0 @@
-# Contributors (sorted alphabeticaly)
-
-none

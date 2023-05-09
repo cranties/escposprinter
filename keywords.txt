@@ -1,0 +1,17 @@
+# Syntax Coloring Map For ExampleLibrary
+
+# Datatypes (KEYWORD1)
+thermal    KEYWORD1
+micro    KEYWORD1
+receipt    KEYWORD1
+printer    KEYWORD1
+serial    KEYWORD1
+escpos    KEYWORD1
+tm-t88    KEYWORD1
+tm-t20    KEYWORD1
+
+# Methods and Functions (KEYWORD2)
+
+# Instances (KEYWORD2)
+
+# Constants (LITERAL1)
